@@ -1,4 +1,4 @@
-package entity;
+package entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "employee_db")
+@Table(name = "employees")
 public class Employees {
 
     @Id
