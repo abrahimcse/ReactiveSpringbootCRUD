@@ -1,14 +1,14 @@
-package services.impl;
+package com.task.ReactiveSpringbootCRUD.services.impl;
 
-import employeesDTO.EmployeeDTO;
-import entities.Employee;
+import com.task.ReactiveSpringbootCRUD.employeesDTO.EmployeeDTO;
+import com.task.ReactiveSpringbootCRUD.entities.Employee;
+import com.task.ReactiveSpringbootCRUD.repositories.EmployeeRepository;
+import com.task.ReactiveSpringbootCRUD.services.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import repositories.EmployeeRepository;
-import services.EmployeeService;
 
 @RequiredArgsConstructor
 @Service
@@ -20,15 +20,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Mono<EmployeeDTO> create(EmployeeDTO employeeDTO) {
-        Employee employee=modelMapper.map(employeeDTO, Employee.class);
-        return employeeRepository.save(employee)
-                .map(saved -> modelMapper.map(saved, EmployeeDTO.class));
+        Employee employee = modelMapper.map(employeeDTO, Employee.class);
+        return employeeRepository.save(employee).map(emp -> modelMapper.map(emp, EmployeeDTO.class));
     }
 
     @Override
     public Flux<EmployeeDTO> getAll() {
         return employeeRepository.findAll()
-                .map(employee -> modelMapper.map(employee,EmployeeDTO.class));
+                .map(employee -> modelMapper.map(employee, EmployeeDTO.class));
     }
 
     @Override
@@ -46,7 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     existing.setSalary(employeeDTO.getSalary());
                     return employeeRepository.save(existing);
                 })
-                .map(updated -> modelMapper.map(updated,EmployeeDTO.class));
+                .map(updated -> modelMapper.map(updated, EmployeeDTO.class));
     }
 
     @Override
