@@ -13,7 +13,7 @@ public interface EmployeeService {
 
     public Mono<EmployeeDTO> update(EmployeeDTO employeeDTO, int id);
 
-    public Mono<EmployeeDTO> delete(int id);
+    public Mono<Void> delete(int id);
 
-    public Flux<EmployeeDTO> search(String query);
+
 }
