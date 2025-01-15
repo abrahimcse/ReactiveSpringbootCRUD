@@ -25,23 +25,7 @@ A **Reactive Employee Management System** built with **Spring Boot**, **Spring W
 ## 📮 API Endpoints
 
 ### ➕ Create Employee
-**POST** `/employees`
-```json
-{
-  "name": "John Doe",
-  "designation": "Software Engineer",
-  "salary": 60000
-}
-```
-
-### 📄 Get All Employees
-**GET** `/employees`
-
-### 🔍 Get Employee by ID
-**GET** `/employees/{id}`
-
-### ✏️ Update Employee
-**PUT** `/employees/{id}`
+**POST** `/employee`
 ```json
 {
   "name": "Abdur Rahim",
@@ -50,11 +34,25 @@ A **Reactive Employee Management System** built with **Spring Boot**, **Spring W
 }
 ```
 
+### 📄 Get All Employees
+**GET** `/employee`
+
+### 🔍 Get Employee by ID
+**GET** `/employee/{id}`
+
+### ✏️ Update Employee
+**PUT** `/employee/{id}`
+```json
+{
+  "name": "Abdur Rahim",
+  "designation": "DevOps Engineer",
+  "salary": 9000
+}
+```
+
 ### ❌ Delete Employee
-**DELETE** `/employees/{id}`
+**DELETE** `/employee/{id}`
 
-
----
 
 
 
